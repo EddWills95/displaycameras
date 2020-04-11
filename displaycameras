@@ -10,6 +10,7 @@
 ### END INIT INFO
 
 #version:0.8.3
+version="0.8.3"
 
 # Exit if not root
 if [[ $EUID -ne 0 ]]; then
@@ -317,6 +318,9 @@ echo $DISPLAY_SEQUENCE > $DISPLAY_SEQUENCE_FILE
 ;;
 
 status)
+echo "======"
+echo "displaycameras v:$version running"
+echo "======"
 for i in "${camera_names[@]}"
 do
 	status="`omxplayer_dbuscontrol $i status 2>/dev/null`"
